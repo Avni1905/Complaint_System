@@ -11,12 +11,12 @@ const Login = () => {
     event.preventDefault();
     // Add your login logic here
     // For demonstration purposes, assume login is successful
-    history("/Dashboard");
+    history("/Admin");
   };
 
   return (
     <div className="addUser">
-      <h3>Sign in</h3>
+      <h3>Admin Sign in</h3>
       <form className="addUserForm" onSubmit={handleSubmit}>
         <div className="inputGroup">
           <label htmlFor="email">Email:</label>
@@ -46,7 +46,7 @@ const Login = () => {
       </form>
       <div className="login">
         <p>Don't have Account? </p>
-        <Link to="/signup" className="btn btn-success">
+        <Link to="/signupadmin" className="btn btn-success">
           Sign Up
         </Link>
       </div>

@@ -5,6 +5,8 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Admin from './pages/Admin';
 import Navbar from './components/Navbar'; 
+import Signupadmin from './pages/Signupadmin';
+import Loginadmin from './pages/Loginadmin';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/admin" element={<Admin />} />
+          <Route path="/signupadmin" element={<Signupadmin />} />
+          <Route path="/loginadmin" element={<Loginadmin />} />
         <Route exact path="/" element={<Login />} />
       </Routes>
     </div>

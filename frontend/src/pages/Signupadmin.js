@@ -52,12 +52,12 @@ const Signup = () => {
     localStorage.setItem("accounts", JSON.stringify(existingAccounts));
 
     // Redirect to the login page after successful signup
-    navigate("/Login");
+    navigate("/Loginadmin");
   };
 
   return (
     <div className="addUser">
-      <h3>Sign Up</h3>
+      <h3>Admin Sign Up</h3>
       {error && <div className="alert alert-danger">{error}</div>}
       <form className="addUserForm" onSubmit={handleSignup}>
         <div className="inputGroup">
@@ -108,7 +108,7 @@ const Signup = () => {
       </form>
       <div className="login">
         <p>Already have an Account? </p>
-        <Link to="/login" className="btn btn-primary">
+        <Link to="/loginadmin" className="btn btn-primary">
           Login
         </Link>
       </div>

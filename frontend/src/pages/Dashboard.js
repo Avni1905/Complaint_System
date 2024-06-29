@@ -15,15 +15,15 @@ const Dashboard = () => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormData({...formData, [name]: value });
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleFileChange = (event) => {
-    setFormData({...formData, uploaded_file: event.target.files[0] });
+    setFormData({ ...formData, uploaded_file: event.target.files[0] });
   };
 
-  const handleAdminRedirect = () => {
-    navigate('/admin'); 
+  const handleSignupadminRedirect = () => {
+    navigate('/signupadmin');
   };
 
   const handleFormSubmit = async (event) => {
@@ -44,7 +44,6 @@ const Dashboard = () => {
 
       if (response.ok) {
         alert('Form submitted successfully!');
-        
       } else {
         alert('Failed to submit form.');
       }
@@ -60,77 +59,75 @@ const Dashboard = () => {
 
   return (
     <div className="container text-center">
-      {/* <div className="overlay-background"> */}
-        <div className="content">
-          <h1 className="alert alert-warning mt-2">IT Complaint Logger</h1>
-          <button className="btn btn-warning mt-2" onClick={handleLogout}>
-            Logout
+      <div className="content">
+        <h1 className="alert alert-warning mt-2">IT Complaint Logger</h1>
+        <button className="btn btn-warning mt-2" onClick={handleLogout}>
+          Logout
+        </button>
+        <form onSubmit={handleFormSubmit} method="post" encType="multipart/form-data">
+          <label>
+            Enter your Email:
+            <input
+              placeholder="Enter Email"
+              name="user_email"
+              className="form-control mt-2"
+              required
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Enter your Name:
+            <input
+              placeholder="Enter Name"
+              name="user_name"
+              className="form-control mt-2"
+              required
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Enter your Location:
+            <input
+              placeholder="Enter Location"
+              name="user_location"
+              className="form-control mt-2"
+              required
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Enter your Message:
+            <input
+              placeholder="Enter Message"
+              name="user_message"
+              className="form-control mt-2"
+              required
+              onChange={handleInputChange}
+            />
+          </label>
+          <br />
+          <label>
+            Upload Your File:
+            <input
+              type="file"
+              className="form-control mt-2"
+              name="uploaded_file"
+              onChange={handleFileChange}
+            />
+          </label>
+          <br />
+          <button className="btn btn-warning mt-2" type="submit">
+            Submit
           </button>
-          <form onSubmit={handleFormSubmit} method="post" encType="multipart/form-data">
-            <label>
-              Enter your Email:
-              <input
-                placeholder="Enter Email"
-                name="user_email"
-                className="form-control mt-2"
-                required
-                onChange={handleInputChange}
-              />
-            </label>
-            <br />
-            <label>
-              Enter your Name:
-              <input
-                placeholder="Enter Name"
-                name="user_name"
-                className="form-control mt-2"
-                required
-                onChange={handleInputChange}
-              />
-            </label>
-            <br />
-            <label>
-              Enter your Location:
-              <input
-                placeholder="Enter Location"
-                name="user_location"
-                className="form-control mt-2"
-                required
-                onChange={handleInputChange}
-              />
-            </label>
-            <br />
-            <label>
-              Enter your Message:
-              <input
-                placeholder="Enter Message"
-                name="user_message"
-                className="form-control mt-2"
-                required
-                onChange={handleInputChange}
-              />
-            </label>
-            <br />
-            <label>
-              Upload Your File:
-              <input
-                type="file"
-                className="form-control mt-2"
-                name="uploaded_file"
-                onChange={handleFileChange}
-              />
-            </label>
-            <br />
-            <button className="btn btn-warning mt-2" onClick={handleFormSubmit}>
-  Submit
-</button>
-          </form>
-          <button className="btn btn-info mt-4" onClick={handleAdminRedirect}>
-            Go to Admin Page
-          </button>
-        </div>
+        </form>
+        <button className="btn btn-info mt-4" onClick={handleSignupadminRedirect}>
+          Go to Admin Page
+        </button>
       </div>
-    // </div>
+    </div>
   );
 };
 
