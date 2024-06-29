@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
@@ -21,6 +21,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 
-const PORT = process.env.PORT || 5000;
+//const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.get("/message", (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
+app.listen(5000, () => {
+  console.log(`Server is running on port 5000.`);
+});

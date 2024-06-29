@@ -22,8 +22,8 @@ const Dashboard = () => {
     setFormData({...formData, uploaded_file: event.target.files[0] });
   };
 
-  const handleAdminPageRedirect = () => {
-    navigate('/admin-dashboard'); 
+  const handleAdminRedirect = () => {
+    navigate('/admin'); 
   };
 
   const handleFormSubmit = async (event) => {
@@ -121,9 +121,11 @@ const Dashboard = () => {
               />
             </label>
             <br />
-            <button className="btn btn-warning mt-2">Submit</button>
+            <button className="btn btn-warning mt-2" onClick={handleFormSubmit}>
+  Submit
+</button>
           </form>
-          <button className="btn btn-info mt-4" onClick={handleAdminPageRedirect}>
+          <button className="btn btn-info mt-4" onClick={handleAdminRedirect}>
             Go to Admin Page
           </button>
         </div>
